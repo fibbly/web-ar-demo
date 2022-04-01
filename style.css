@@ -54,3 +54,22 @@ body {
     color: red;
     font-weight: bold;
 }
+
+.switch-model-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    background-color: #55cdba;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    width: 150px;
+}
+
+.falcon {
+    background-color: #55a9cd;
+}

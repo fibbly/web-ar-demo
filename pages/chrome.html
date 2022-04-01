@@ -9,6 +9,9 @@
     <body>
         <div id="app">
             <a href="/" class="go-back">Go Back</a>
+            <button class="switch-model-btn" id="switch-model">
+                Falcons Central
+            </button>
             <model-viewer
                 id="viewer"
                 src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
@@ -30,5 +33,28 @@
             src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
         ></script>
         <script type="module" src="../main.js"></script>
+        <script>
+            const astronaut =
+                "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
+            const falconsCentral = "/assets/FalconsCentral.glb";
+
+            let toggleModel = false;
+
+            const btn = document.getElementById("switch-model");
+
+            btn.onclick = () => {
+                toggleModel = !toggleModel;
+                btn.classList.toggle("falcon");
+                btn.innerHTML = `${
+                    toggleModel ? "Astronaut" : "Falcons Central"
+                }`;
+                document
+                    .getElementById("viewer")
+                    .setAttribute(
+                        "src",
+                        `${toggleModel ? falconsCentral : astronaut}`
+                    );
+            };
+        </script>
     </body>
 </html>
