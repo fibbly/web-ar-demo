@@ -76,6 +76,7 @@ body {
 }
 
 .controls {
+    display: none;
     padding: 1.25rem;
     border-radius: 12px;
     background-color: #cbcbcb;
@@ -85,7 +86,6 @@ body {
 }
 
 .controls div {
-    display: none;
     padding: 0.5rem;
 }
 
