@@ -20,7 +20,32 @@
                 ar
                 auto-rotate
                 camera-controls
-            ></model-viewer>
+            >
+                <div class="controls">
+                    <div>
+                        Roll:
+                        <input id="roll" value="20" size="3" class="number" />
+                        degrees
+                    </div>
+                    <div>
+                        Pitch:
+                        <input id="pitch" value="0" size="3" class="number" />
+                        degrees
+                    </div>
+                    <div>
+                        Yaw:
+                        <input id="yaw" value="0" size="3" class="number" />
+                        degrees
+                    </div>
+                    <div>
+                        Scale: X:
+                        <input id="x" value="1" size="3" class="number" />, Y:
+                        <input id="y" value="1" size="3" class="number" />, Z:
+                        <input id="z" value="1" size="3" class="number" />
+                    </div>
+                    <button id="frame">Update Framing</button>
+                </div>
+            </model-viewer>
         </div>
         <!-- Loads <model-viewer> for modern browsers: -->
         <script
