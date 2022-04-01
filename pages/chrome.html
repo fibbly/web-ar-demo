@@ -34,9 +34,10 @@
         ></script>
         <script type="module" src="../main.js"></script>
         <script>
+            import falconsCentralURL from "../assets/FalconsCentral.glb";
+
             const astronaut =
                 "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
-            const falconsCentral = "/assets/FalconsCentral.glb";
 
             let toggleModel = false;
 
@@ -52,7 +53,7 @@
                     .getElementById("viewer")
                     .setAttribute(
                         "src",
-                        `${toggleModel ? falconsCentral : astronaut}`
+                        `${toggleModel ? falconsCentralURL : astronaut}`
                     );
             };
         </script>
