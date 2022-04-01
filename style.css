@@ -21,3 +21,15 @@ body {
 #viewer {
     height: 50%;
 }
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.test {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2rem;
+}
