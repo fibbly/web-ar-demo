@@ -1,4 +1,4 @@
-import falconsCentralURL from "./assets/FalconsCentral_3.glb";
+import falconsCentralURL from "./assets/FalconsCentral_4.glb";
 
 const astronaut = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
 

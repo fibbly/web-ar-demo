@@ -12,8 +12,10 @@ module.exports = defineConfig({
                 detect: resolve(__dirname, "pages/detect.html"),
                 gundam: resolve(__dirname, "pages/gundam.html"),
                 model: resolve(__dirname, "assets/FalconsCentral.glb"),
+                gundamBin: resolve(__dirname, "assets/gundam/scene.bin"),
+                gundamScene: resolve(__dirname, "assets/gundam/scene.gltf"),
             },
         },
     },
-    assetsInclude: ["**/*.glb"],
+    assetsInclude: ["**/*.glb", "**/*.gltf", "**/*.bin"],
 });
