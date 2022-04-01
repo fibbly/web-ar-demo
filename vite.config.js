@@ -10,6 +10,7 @@ module.exports = defineConfig({
                 chrome: resolve(__dirname, "pages/chrome.html"),
                 safari: resolve(__dirname, "pages/safari.html"),
                 detect: resolve(__dirname, "pages/detect.html"),
+                gundam: resolve(__dirname, "pages/gundam.html"),
                 model: resolve(__dirname, "assets/FalconsCentral.glb"),
             },
         },
