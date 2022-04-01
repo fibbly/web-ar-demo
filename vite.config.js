@@ -8,7 +8,8 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         chrome: resolve(__dirname, 'pages/chrome.html'),
-        safari: resolve(__dirname, 'pages/safari.html')
+        safari: resolve(__dirname, 'pages/safari.html'),
+        detect: resolve(__dirname, 'pages/detect.html')
       }
     }
   }

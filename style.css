@@ -40,3 +40,17 @@ body {
     left: 0;
     padding: 2rem;
 }
+
+#brower-detect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    width: 25%;
+    text-align: left;
+}
+
+.safari-detected {
+    color: red;
+    font-weight: bold;
+}
