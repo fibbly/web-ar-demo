@@ -33,29 +33,6 @@
             src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
         ></script>
         <script type="module" src="../main.js"></script>
-        <script>
-            import falconsCentralURL from "../assets/FalconsCentral.glb";
-
-            const astronaut =
-                "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
-
-            let toggleModel = false;
-
-            const btn = document.getElementById("switch-model");
-
-            btn.onclick = () => {
-                toggleModel = !toggleModel;
-                btn.classList.toggle("falcon");
-                btn.innerHTML = `${
-                    toggleModel ? "Astronaut" : "Falcons Central"
-                }`;
-                document
-                    .getElementById("viewer")
-                    .setAttribute(
-                        "src",
-                        `${toggleModel ? falconsCentralURL : astronaut}`
-                    );
-            };
-        </script>
+        <script type="module" src="../chrome.js"></script>
     </body>
 </html>
