@@ -16,6 +16,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-image: linear-gradient(to bottom, #8360c3, #2ebf91);
 }
 
 #viewer {
@@ -40,6 +41,15 @@ body {
     top: 0;
     left: 0;
     padding: 2rem;
+    color: white;
+    text-decoration: none;
+    margin: 2rem;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    width: 25%;
 }
 
 #brower-detect {
@@ -69,6 +79,7 @@ body {
     border-radius: 4px;
     text-align: center;
     width: 150px;
+    box-shadow: 5px 5px 10px #654999;
 }
 
 .falcon {
@@ -108,6 +119,7 @@ body {
     white-space: nowrap;
     bottom: 0;
     padding: 0px 16px 0px 40px;
+    margin-top: 0;
     font-family: Roboto Regular, Helvetica Neue, sans-serif;
     font-size: 14px;
     color: #4285f4;
