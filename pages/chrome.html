@@ -15,39 +15,13 @@
             <model-viewer
                 id="viewer"
                 src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
                 alt="A 3D model of an astronaut"
                 ar
                 auto-rotate
                 camera-controls
                 ar-modes="webxr scene-viewer quick-look"
                 xr-environment
-            >
-                <button slot="ar-button">Activate AR</button>
-                <div class="controls">
-                    <div>
-                        Roll:
-                        <input id="roll" value="20" size="3" class="number" />
-                        degrees
-                    </div>
-                    <div>
-                        Pitch:
-                        <input id="pitch" value="0" size="3" class="number" />
-                        degrees
-                    </div>
-                    <div>
-                        Yaw:
-                        <input id="yaw" value="0" size="3" class="number" />
-                        degrees
-                    </div>
-                    <div>
-                        Scale: X:
-                        <input id="x" value="1" size="3" class="number" />, Y:
-                        <input id="y" value="1" size="3" class="number" />, Z:
-                        <input id="z" value="1" size="3" class="number" />
-                    </div>
-                    <button id="frame">Update Framing</button>
-                </div>
+                ><button slot="ar-button" id="ar-button">View in AR</button>
             </model-viewer>
         </div>
         <!-- Loads <model-viewer> for modern browsers: -->
