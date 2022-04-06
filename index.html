@@ -6,21 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Web AR Demo</title>
     </head>
+
     <body>
         <div id="app">
-            <h1>Choose your browser</h1>
-            <div class="actions">
-                <a href="/pages/chrome.html">Chrome</a>
-                <a href="/pages/safari.html">Safari</a>
-                <a href="/pages/detect.html">Detect</a>
-            </div>
-            <div class="test">
-                <a
-                    rel="ar"
-                    href="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-                >
-                    safari link-only test
-                </a>
+            <div class="browser-selection-wrapper">
+                <h1 class="text-white text-4xl">Choose your browser</h1>
+                <div class="actions flex flex-row justify-space-evenly">
+                    <a class="btn btn-primary" href="/pages/chrome.html">
+                        <span>Chrome</span>
+                    </a>
+                    <a class="btn btn-secondary" href="/pages/safari.html">
+                        <span>Safari</span>
+                    </a>
+                    <a class="btn btn-success" href="/pages/detect.html">
+                        <span>Detect</span>
+                    </a>
+                </div>
             </div>
         </div>
         <script type="module" src="/main.js"></script>

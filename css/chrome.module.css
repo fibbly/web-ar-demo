@@ -1,0 +1,9 @@
+.hand,
+.hand-info {
+    margin: 0.5rem;
+    display: none;
+}
+
+.hand {
+    margin: 0 auto;
+}

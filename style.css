@@ -1,7 +1,10 @@
-html,
-body {
+@import "./css/index.module.css";
+@import "./css/chrome.module.css";
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #app {
@@ -12,23 +15,181 @@ body {
     color: #2c3e50;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 100vh;
+    padding: 1rem;
     background-image: linear-gradient(to bottom, #8360c3, #2ebf91);
 }
 
-#viewer {
-    height: 75%;
-    width: 90%;
+.text-xs {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
 }
 
-.actions {
+.text-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+}
+
+.text-md {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+}
+
+.text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+}
+
+.text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+}
+
+.text-2xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+}
+
+.text-3xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+}
+
+.text-4xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+}
+
+.text-5xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+}
+
+.text-6xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+}
+
+.text-7xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+}
+
+.text-8xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+}
+
+.text-9xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+}
+
+.text-white {
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.btn {
+    border: 2px solid transparent;
+    padding: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    margin: 0.5rem;
+    min-width: 50px;
+    box-shadow: 1px 1px 15px #654999;
+}
+
+/* .btn:hover {
+    background-color: #373a3e;
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 25px rgba(182, 253, 181, 0.8);
+} */
+
+.btn-primary {
+    background-color: #2569bd;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: #2569bd;
+    color: #2569bd;
+}
+
+.btn-secondary {
+    background-color: #3b5a81;
+}
+
+.btn-success {
+    background-color: #19bf81;
+}
+
+.btn-danger {
+    background-color: #bd4949;
+}
+
+.btn-white-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+model-viewer {
+    height: 100%;
+    width: 100%;
+}
+
+/* .actions {
     display: flex;
     justify-content: center;
     gap: 2rem;
-}
+    padding: 1 rem;
+} */
 
 .test {
     position: absolute;
@@ -37,19 +198,14 @@ body {
 }
 
 .go-back {
-    position: absolute;
-    top: 0;
-    left: 0;
     padding: 2rem;
     color: white;
     text-decoration: none;
-    margin: 2rem;
     border: none;
     padding: 1rem;
     font-size: 1rem;
     border-radius: 4px;
     text-align: center;
-    width: 25%;
 }
 
 #brower-detect {
@@ -66,11 +222,7 @@ body {
     font-weight: bold;
 }
 
-.switch-model-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 2rem;
+/* .switch-model-btn {
     background-color: #55cdba;
     color: white;
     border: none;
@@ -78,9 +230,8 @@ body {
     font-size: 1rem;
     border-radius: 4px;
     text-align: center;
-    width: 150px;
     box-shadow: 5px 5px 10px #654999;
-}
+} */
 
 .falcon {
     background-color: #55a9cd;
@@ -140,3 +291,15 @@ body {
 #ar-button:focus-visible {
     outline: 1px solid #4285f4;
 }
+
+.hotspot {
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+/* .HotspotAnnotation {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+} */
