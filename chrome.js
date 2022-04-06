@@ -1,4 +1,9 @@
-//import falconsCentralURL from "./assets/FalconCentralAR_testv004.glb";
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        // Hide the address bar:
+        window.scrollTo(0, 1);
+    }, 0);
+});
 
 const astronautURL =
     "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
