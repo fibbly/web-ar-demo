@@ -11,7 +11,7 @@
 			<a href="/" class="go-back">Go Back</a>
 			<model-viewer
 				id="viewer"
-				src="/models/catflair.glb"
+				src="/models/catflair.glb?sound=/song.ogg"
 				alt="Cat"
 				autoplay
 				ar
@@ -23,7 +23,8 @@
 				shadow-intensity="1"
 				shadow-softness=".5"
 				interpolation-decay="200"
-			></model-viewer>
+			>
+			</model-viewer>
 		</div>
 		<!-- Loads <model-viewer> for modern browsers: -->
 		<script
@@ -36,5 +37,6 @@
 			src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
 		></script>
 		<script type="module" src="../main.js"></script>
+		<script></script>
 	</body>
 </html>
