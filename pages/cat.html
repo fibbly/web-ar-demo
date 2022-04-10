@@ -53,8 +53,9 @@
 		<script type="module" src="../main.js"></script>
 		<script>
 			const btn = document.getElementById("cat");
+
 			btn.onclick = () => {
-				var audio = new Audio("song.ogg");
+				var audio = new Audio("/audio/song.ogg");
 				audio.play();
 			};
 		</script>
