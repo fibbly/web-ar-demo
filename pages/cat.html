@@ -54,9 +54,16 @@
 		<script>
 			const btn = document.getElementById("cat");
 
+			const audio = new Audio("/audio/song.ogg");
+
+			let isPlaying = false;
+
 			btn.onclick = () => {
-				var audio = new Audio("/audio/song.ogg");
-				audio.play();
+				if (!isPlaying) {
+					audio.play();
+				} else {
+					audio.pause();
+				}
 			};
 		</script>
 	</body>
