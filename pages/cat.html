@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web AR Demo - Cat</title>
+	</head>
+	<body>
+		<div id="app">
+			<a href="/" class="go-back">Go Back</a>
+			<model-viewer
+				id="viewer"
+				src="/assets/catflair.glb"
+				alt="Cat"
+				ar
+				auto-rotate
+				camera-controls
+				ar-modes="webxr scene-viewer quick-look"
+				xr-environment
+				style="background-color: unset"
+				shadow-intensity="1"
+				shadow-softness=".5"
+				interaction-prompt="none"
+				field-of-view="45deg"
+				min-camera-orbit="auto auto 5%"
+				interpolation-decay="200"
+			></model-viewer>
+		</div>
+		<!-- Loads <model-viewer> for modern browsers: -->
+		<script
+			type="module"
+			src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
+		></script>
+		<!-- Loads <model-viewer> for old browsers like IE11: -->
+		<script
+			nomodule
+			src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+		></script>
+		<script type="module" src="../main.js"></script>
+	</body>
+</html>
