@@ -10,7 +10,7 @@
     <body>
         <div id="app">
             <div class="navbar flex flex-row w-100 justify-space-between">
-                <a href="/" class="btn btn-white-outline">&#129120; Go Back</a>
+                <a href="/" class="btn btn-white-outline">Go Back</a>
                 <button class="btn btn-success" id="switch-model">
                     Falcons Central
                 </button>
@@ -22,7 +22,6 @@
                 ar
                 camera-controls
                 ar-modes="webxr scene-viewer quick-look"
-                xr-environment
                 style="background-color: unset"
                 shadow-intensity="1"
                 shadow-softness=".5"
@@ -30,6 +29,7 @@
                 field-of-view="45deg"
                 min-camera-orbit="auto auto 5%"
                 interpolation-decay="200"
+                environment-image="../env/sunrise.hdr"
             >
                 <button
                     class="hotspot hotspot-1 flex flex-col"
