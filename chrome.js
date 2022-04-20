@@ -1,6 +1,6 @@
 const astronautURL =
     "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
-const falconCentralURL = "/models/falcon06.glb";
+const falconCentralURL = "/models/falcon09.glb";
 const modelViewer = document.querySelector("#modelViewer");
 const switchModelBtn = document.getElementById("switch-model");
 let isFalconsCentral = false;
