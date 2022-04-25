@@ -1,65 +1,138 @@
-var ua = window.navigator.userAgent;
-var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-var webkit = !!ua.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var root = document.getElementById("app");
 
-document.title += ` - ${iOSSafari ? "Safari" : "Chrome"}`;
-
-document.getElementById("brower-detect").innerHTML = `${navigator.userAgent} ${
-    iOSSafari
-        ? '<br /><span class="safari-detected">Safari Detected</span>'
-        : '<br /><span class="safari-detected">Chrome Detected</span>'
-}`;
-
-const useQuickLook = () => {
-    const a = document.createElement("a");
-    a.rel = "ar";
-    a.href = "https://modelviewer.dev/shared-assets/models/Astronaut.usdz";
-
-    const img = document.createElement("img");
-    img.src =
-        "https://developers.google.com/ar/develop/webxr/images/model-viewer-screenshot.png";
-
-    a.appendChild(img);
-
-    document.getElementById("app").appendChild(a);
-
-    a.click();
+/**
+ * QuickLook Config
+ * (iOS Devices & Safari Browsers)
+ */
+var quickLookConfig = {
+    model: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
+    preview:
+        "https://developers.google.com/ar/develop/webxr/images/model-viewer-screenshot.png",
 };
 
-const useModelViewer = () => {
-    const mv = document.createElement("model-viewer");
-    mv.id = "viewer";
-    mv.setAttribute(
-        "src",
-        "https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-    );
-    mv.setAttribute(
-        "ios-src",
-        "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-    );
-    mv.setAttribute("alt", "A 3D model of an astronaut");
-    mv.setAttribute("ar", "");
-    mv.setAttribute("auto-rotate", "");
-    mv.setAttribute("camera-controls", "");
+/**
+ * Model-Viewer Config
+ * (Android Devices & Chrome Browers)
+ */
+var modelViewerConfig = {
+    model: "/models/falcon10.glb",
+    id: "modelViewer",
+    alt: "A 3D model of an astronaut",
+    ar: true,
+    arModes: ["webxr", "scene-viewer", "quick-look"],
+    autoRotate: true,
+    cameraControls: true,
+    xrEnvironment: false,
+    shadowIntensity: "1",
+    shadowSoftness: ".5",
+    interactionPrompt: "none",
+    fieldOfView: "45deg",
+    minCameraOrbit: "auto auto 5%",
+    interpolationDecay: "200",
+    environmentImage: "",
+};
 
-    document.getElementById("app").appendChild(mv);
+/**
+ * Use QuickLook Function
+ */
+function useQuickLook() {
+    // set up model
+    var a = document.createElement("a");
+    a.rel = "ar";
+    a.href = quickLookConfig.model;
 
-    const modern = document.createElement("script");
+    // set up model preview
+    var img = document.createElement("img");
+    img.src = quickLookConfig.preview;
+
+    // render quicklook to DOM
+    a.appendChild(img);
+    root.appendChild(a);
+}
+
+/**
+ * Use Model-Viewer Function
+ */
+function useModelViewer() {
+    // load <model-viewer> for modern browsers
+    var modern = document.createElement("script");
     modern.type = "module";
     modern.src = "https://unpkg.com/@google/model-viewer/dist/model-viewer.js";
+    document.getElementsByTagName("body")[0].appendChild(modern);
 
-    const legacy = document.createElement("script");
+    // load <model-viewer> for legacy browsers
+    var legacy = document.createElement("script");
     legacy.type = "nomodule";
     legacy.src =
         "https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js";
-
-    document.getElementsByTagName("body")[0].appendChild(modern);
     document.getElementsByTagName("body")[0].appendChild(legacy);
-};
 
-if (iOSSafari) {
-    useQuickLook();
-} else {
-    useModelViewer();
+    // set up model-viewer
+    var mv = document.createElement("model-viewer");
+    mv.id = modelViewerConfig.id;
+    mv.setAttribute("src", modelViewerConfig.model);
+    mv.setAttribute("alt", modelViewerConfig.alt);
+    mv.style.backgroundColor = "unset";
+    if (modelViewerConfig.ar) {
+        mv.setAttribute("ar", "");
+    }
+    if (modelViewerConfig.arModes) {
+        mv.setAttribute("ar-modes", modelViewerConfig.arModes.join(" "));
+    }
+    if (modelViewerConfig.autoRotate) {
+        mv.setAttribute("auto-rotate", "");
+    }
+    if (modelViewerConfig.cameraControls) {
+        mv.setAttribute("camera-controls", "");
+    }
+    if (modelViewerConfig.xrEnvironment) {
+        mv.setAttribute("xr-environment", "");
+    }
+    if (modelViewerConfig.shadowIntensity) {
+        mv.setAttribute("shadow-intensity", modelViewerConfig.shadowIntensity);
+    }
+    if (modelViewerConfig.shadowSoftness) {
+        mv.setAttribute("shadow-softness", modelViewerConfig.shadowSoftness);
+    }
+    if (modelViewerConfig.interactionPrompt) {
+        mv.setAttribute(
+            "interaction-prompt",
+            modelViewerConfig.interactionPrompt
+        );
+    }
+    if (modelViewerConfig.fieldOfView) {
+        mv.setAttribute("field-of-view", modelViewerConfig.fieldOfView);
+    }
+    if (modelViewerConfig.minCameraOrbit) {
+        mv.setAttribute("min-camera-orbit", modelViewerConfig.minCameraOrbit);
+    }
+    if (modelViewerConfig.environmentImage) {
+        mv.setAttribute(
+            "environment-image",
+            modelViewerConfig.environmentImage
+        );
+    }
+    if (modelViewerConfig.interpolationDecay) {
+        mv.setAttribute(
+            "interpolation-decay",
+            modelViewerConfig.interpolationDecay
+        );
+    }
+
+    // render model-viewer to DOM
+    root.appendChild(mv);
 }
+
+/**
+ * Main Function
+ */
+(function () {
+    var ua = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+    console.log(iOSSafari ? "Safari Detected" : "Chrome Detected");
+
+    iOSSafari ? useQuickLook() : useModelViewer();
+})();
