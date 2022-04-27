@@ -1,6 +1,12 @@
 var root = document.getElementById("app");
 
 /**
+ * Root Element Config
+ */
+root.style.width = "100vw";
+root.style.height = "100vh";
+
+/**
  * QuickLook Config
  * (iOS Devices & Safari Browsers)
  */
@@ -69,10 +75,14 @@ function useModelViewer() {
 
     // set up model-viewer
     var mv = document.createElement("model-viewer");
+
     mv.id = modelViewerConfig.id;
     mv.setAttribute("src", modelViewerConfig.model);
     mv.setAttribute("alt", modelViewerConfig.alt);
     mv.style.backgroundColor = "unset";
+    mv.style.width = "100%";
+    mv.style.height = "100%";
+
     if (modelViewerConfig.ar) {
         mv.setAttribute("ar", "");
     }
