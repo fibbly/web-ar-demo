@@ -5,6 +5,7 @@ var root = document.getElementById("app");
  */
 root.style.width = "100vw";
 root.style.height = "100vh";
+root.style.backgroundImage = "linear-gradient(to bottom, #f5f7fa 40%, #b8c6db)";
 
 /**
  * QuickLook Config
@@ -21,7 +22,7 @@ var quickLookConfig = {
  * (Android Devices & Chrome Browers)
  */
 var modelViewerConfig = {
-    model: "/models/falcon10.glb",
+    model: "/models/falcon13.glb",
     id: "modelViewer",
     alt: "A 3D model of an astronaut",
     ar: true,
@@ -79,6 +80,7 @@ function useModelViewer() {
     mv.id = modelViewerConfig.id;
     mv.setAttribute("src", modelViewerConfig.model);
     mv.setAttribute("alt", modelViewerConfig.alt);
+    mv.setAttribute("autoplay", "");
     mv.style.backgroundColor = "unset";
     mv.style.width = "100%";
     mv.style.height = "100%";
