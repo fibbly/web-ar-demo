@@ -23,6 +23,7 @@
 }
 
 .Hotspot {
+    max-width: 175px;
     padding: 8px;
     border: 1px solid white;
     border-radius: 6px;
