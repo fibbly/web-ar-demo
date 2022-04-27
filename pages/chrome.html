@@ -11,13 +11,13 @@
         <div id="app">
             <div class="navbar flex flex-row w-100 justify-space-between">
                 <a href="/" class="btn btn-primary">Go Back</a>
-                <button class="btn btn-success" id="switch-model">
+                <!-- <button class="btn btn-success" id="switch-model">
                     Falcons Central
-                </button>
+                </button> -->
             </div>
             <model-viewer
                 id="modelViewer"
-                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+                src="/models/falcon13.glb"
                 alt="A 3D model of an astronaut"
                 autoplay
                 ar
@@ -33,6 +33,33 @@
                 environment-image="../env/sunrise.hdr"
             >
                 <button
+                    class="Hotspot"
+                    slot="hotspot-1"
+                    data-position="1.6878074308652626m 0.10624081905668066m -0.06204077362389539m"
+                    data-normal="-0.6302822692547314m 0.5758348020517137m 0.5207288563246424m"
+                    data-visibility-attribute="visible"
+                >
+                    <div class="HotspotAnnotation">Katmandu Park</div></button
+                ><button
+                    class="Hotspot"
+                    slot="hotspot-2"
+                    data-position="0.8526630793650067m 0.05790157388841756m -0.04473454155182782m"
+                    data-normal="-0.08086902346119855m 0.9404779689096572m 0.3300930036217041m"
+                    data-visibility-attribute="visible"
+                >
+                    <div class="HotspotAnnotation">
+                        Retail, Dining, &amp; Entertainment District
+                    </div></button
+                ><button
+                    class="Hotspot"
+                    slot="hotspot-4"
+                    data-position="-0.6648860305125495m -0.006870585934578471m -0.06761454941227255m"
+                    data-normal="0m 1m 0m"
+                    data-visibility-attribute="visible"
+                >
+                    <div class="HotspotAnnotation">Resort By Meliá</div>
+                </button>
+                <!-- <button
                     class="hotspot hotspot-1 flex flex-col"
                     slot="hotspot-1"
                     data-position="-0.45m 0.95m 0.12346496291587616m"
@@ -58,7 +85,7 @@
                         >
                     </div>
                 </button>
-                <button slot="ar-button" id="ar-button">View in AR</button>
+                <button slot="ar-button" id="ar-button">View in AR</button> -->
             </model-viewer>
         </div>
         <!-- Loads <model-viewer> for modern browsers: -->

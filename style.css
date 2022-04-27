@@ -1,5 +1,6 @@
 @import "./css/index.module.css";
 @import "./css/chrome.module.css";
+@import url("https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap");
 
 * {
     margin: 0;
@@ -19,6 +20,16 @@
     height: 100vh;
     padding: 1rem;
     background-image: linear-gradient(to bottom, #f5f7fa 40%, #b8c6db);
+}
+
+.Hotspot {
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 6px;
+    font-family: "Ceviche One", cursive;
+    font-size: 1.25rem;
+    color: #39597c;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .text-xs {
