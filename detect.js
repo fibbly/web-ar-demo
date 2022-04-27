@@ -22,7 +22,7 @@ var quickLookConfig = {
  * (Android Devices & Chrome Browers)
  */
 var modelViewerConfig = {
-    model: "/models/falcon15.glb",
+    model: "/models/falcon16.glb",
     id: "modelViewer",
     alt: "A 3D model of an astronaut",
     ar: true,
