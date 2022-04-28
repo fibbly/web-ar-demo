@@ -12,6 +12,7 @@ module.exports = defineConfig({
                 safari: resolve(__dirname, "pages/safari.html"),
                 detect: resolve(__dirname, "pages/detect.html"),
                 cat: resolve(__dirname, "pages/cat.html"),
+                test: resolve(__dirname, "pages/test.html"),
                 model: resolve(__dirname, "assets/FalconsCentral.glb"),
             },
         },

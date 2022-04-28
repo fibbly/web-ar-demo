@@ -15,6 +15,12 @@
                     Falcons Central
                 </button> -->
             </div>
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <model-viewer
                 id="modelViewer"
                 src="/models/falcon.glb"
@@ -27,7 +33,7 @@
                 shadow-intensity="1"
                 shadow-softness=".5"
                 interaction-prompt="none"
-                field-of-view="45deg"
+                field-of-view="90deg"
                 min-camera-orbit="auto auto 5%"
                 interpolation-decay="200"
                 environment-image="../env/sunrise.hdr"
@@ -39,7 +45,10 @@
                     data-normal="-0.6302822692547314m 0.5758348020517137m 0.5207288563246424m"
                     data-visibility-attribute="visible"
                 >
-                    <img width="150px" src="/images/Katmandu_Park.jpg" />
+                    <img
+                        class="hotspot-image hotspot-collapsed"
+                        src="/images/Katmandu_Park.jpg"
+                    />
                     <div class="HotspotAnnotation">Katmandu Park</div></button
                 ><button
                     class="Hotspot"
@@ -48,7 +57,10 @@
                     data-normal="-0.08086902346119855m 0.9404779689096572m 0.3300930036217041m"
                     data-visibility-attribute="visible"
                 >
-                    <img width="150px" src="/images/RDE_District.jpg" />
+                    <img
+                        class="hotspot-image hotspot-collapsed"
+                        src="/images/RDE_District.jpg"
+                    />
                     <div class="HotspotAnnotation">
                         Retail, Dining, &amp; Entertainment District
                     </div></button
@@ -59,7 +71,10 @@
                     data-normal="0m 1m 0m"
                     data-visibility-attribute="visible"
                 >
-                    <img width="150px" src="/images/Resort_by_Melia.png" />
+                    <img
+                        class="hotspot-image hotspot-collapsed"
+                        src="/images/Resort_by_Melia.png"
+                    />
                     <div class="HotspotAnnotation">Resort By Meliá</div>
                 </button>
                 <!-- <button

@@ -1,6 +1,6 @@
 @import "./css/index.module.css";
 @import "./css/chrome.module.css";
-@import url("https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
 
 * {
     margin: 0;
@@ -19,18 +19,85 @@
     width: 100vw;
     height: 100vh;
     padding: 1rem;
-    background-image: linear-gradient(to bottom, #f5f7fa 40%, #b8c6db);
+    background-image: linear-gradient(to bottom, #f5f7fa, #b8c6db);
+}
+
+.show {
+    visibility: visible;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .Hotspot {
-    max-width: 175px;
+    max-width: 250px;
     padding: 8px;
     border: 1px solid white;
     border-radius: 6px;
-    font-family: "Ceviche One", cursive;
+    font-family: "Carter One", cursive;
     font-size: 1.25rem;
     color: #39597c;
     background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+.HotspotAnnotation {
+    padding: 6px;
+}
+
+.hotspot-image {
+    width: 100%;
+    display: block;
+    transition: all 0.5s;
+}
+
+.hotspot-expanded {
+    max-height: 300px;
+}
+
+.hotspot-collapsed {
+    max-height: 0;
+}
+
+.bg-gray-gradient {
+    background-image: linear-gradient(to bottom, #f5f7fa, #b8c6db);
 }
 
 .text-xs {
@@ -144,6 +211,14 @@
 
 .w-100 {
     width: 100%;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.h-screen {
+    height: 100vh;
 }
 
 .btn {
