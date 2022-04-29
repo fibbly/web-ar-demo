@@ -3,14 +3,13 @@ import "./style.css";
 (function () {
     const hotspots = document.querySelectorAll(".Hotspot");
 
-    hotspots.forEach((hotspot) => {
-        hotspot.classList.add("hide");
-    });
-
     document.querySelector("#modelViewer").addEventListener("load", () => {
         hotspots.forEach((hotspot) => {
             hotspot.classList.remove("hide");
+            document.getElementById("modelViewer").classList.remove("hide");
         });
+
+        document.querySelector(".lds-ring").classList.add("hide");
     });
 })();
 
