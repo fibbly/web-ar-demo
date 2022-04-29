@@ -13,6 +13,7 @@ module.exports = defineConfig({
                 detect: resolve(__dirname, "pages/detect.html"),
                 cat: resolve(__dirname, "pages/cat.html"),
                 test: resolve(__dirname, "pages/test.html"),
+                aframe: resolve(__dirname, "pages/aframe.html"),
                 model: resolve(__dirname, "assets/FalconsCentral.glb"),
             },
         },
