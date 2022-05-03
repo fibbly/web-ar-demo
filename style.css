@@ -18,8 +18,13 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    padding: 1rem;
     background-image: linear-gradient(to bottom, #f5f7fa, #b8c6db);
+}
+
+#progress {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .show {

@@ -10,6 +10,7 @@ import "./style.css";
         });
 
         document.querySelector(".lds-ring").classList.add("hide");
+        document.querySelector("#progress").classList.add("hide");
     });
 })();
 

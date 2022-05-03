@@ -5,6 +5,11 @@ const modelViewer = document.querySelector("#modelViewer");
 const switchModelBtn = document.getElementById("switch-model");
 let isFalconsCentral = false;
 
+modelViewer.addEventListener("progress", (event) => {
+    const progress = `${Math.round(Number(event.detail.totalProgress) * 100)}%`;
+    document.getElementById("progress").innerHTML = progress;
+});
+
 // switchModelBtn.onclick = () => {
 //     isFalconsCentral = !isFalconsCentral;
 
