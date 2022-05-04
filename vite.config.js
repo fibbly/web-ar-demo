@@ -18,7 +18,13 @@ module.exports = defineConfig({
             },
         },
     },
-    assetsInclude: ["**/*.glb", "**/*.gltf", "**/*.bin", "**/*.hdr"],
+    assetsInclude: [
+        "**/*.glb",
+        "**/*.gltf",
+        "**/*.bin",
+        "**/*.hdr",
+        "**/*.usdz",
+    ],
     publicDir: "public",
     plugins: [
         VitePWA({
