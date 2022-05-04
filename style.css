@@ -1,6 +1,6 @@
 @import "./css/index.module.css";
 @import "./css/chrome.module.css";
-@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 * {
     margin: 0;
@@ -75,19 +75,30 @@
 }
 
 .Hotspot {
-    max-width: 250px;
+    --min-hotspot-opacity: 0;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+.HotspotAnnotation {
+    width: 250px;
     padding: 8px;
     border: 1px solid white;
     border-radius: 6px;
-    font-family: "Carter One", cursive;
+    font-family: "Montserrat", sans-serif;
     font-size: 1.25rem;
     color: #39597c;
     background-color: rgba(255, 255, 255, 1);
     overflow: hidden;
+    position: absolute;
+    transform: translate(20px, 10px);
 }
 
-.HotspotAnnotation {
-    padding: 6px;
+.HotspotAnnotation > p {
+    padding: 8px;
 }
 
 .hotspot-image {
@@ -102,6 +113,8 @@
 
 .hotspot-collapsed {
     max-height: 0;
+    padding: 0;
+    border: none;
 }
 
 .bg-gray-gradient {

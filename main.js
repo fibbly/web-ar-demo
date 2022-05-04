@@ -16,8 +16,9 @@ import "./style.css";
 
 document.querySelectorAll("button.Hotspot").forEach((hotspot) => {
     hotspot.addEventListener("click", () => {
-        const image = hotspot.getElementsByClassName("hotspot-image")[0];
-        image.classList.toggle("hotspot-expanded");
-        image.classList.toggle("hotspot-collapsed");
+        const annotation =
+            hotspot.getElementsByClassName("HotspotAnnotation")[0];
+        annotation.classList.toggle("hotspot-expanded");
+        annotation.classList.toggle("hotspot-collapsed");
     });
 });
