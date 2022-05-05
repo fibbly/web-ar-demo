@@ -94,8 +94,8 @@
             .Hotspot {
                 --min-hotspot-opacity: 0;
                 background-color: red;
-                width: 20px;
-                height: 20px;
+                width: 10px;
+                height: 10px;
                 border-radius: 10px;
                 border: none;
             }
@@ -277,11 +277,33 @@
                 });
 
                 hotspots.forEach((hotspot) => {
-                    hotspot.addEventListener("click", () => {
+                    hotspot.addEventListener("click", (event) => {
                         const annotation =
-                            hotspot.getElementsByClassName(
+                            event.target.getElementsByClassName(
                                 "HotspotAnnotation"
                             )[0];
+
+                        // no hotspot is opened or same hotspot is clicked
+
+                        const expandedHotspots =
+                            document.querySelectorAll(".hotspot-expanded");
+
+                        if (
+                            expandedHotspots.length === 0 ||
+                            annotation.classList.contains("hotspot-expanded")
+                        ) {
+                            annotation.classList.toggle("hotspot-expanded");
+                            annotation.classList.toggle("hotspot-collapsed");
+                            return;
+                        }
+
+                        // different hotspot is clicked
+
+                        expandedHotspots.forEach((hs) => {
+                            hs.classList.toggle("hotspot-expanded");
+                            hs.classList.toggle("hotspot-collapsed");
+                        });
+
                         annotation.classList.toggle("hotspot-expanded");
                         annotation.classList.toggle("hotspot-collapsed");
                     });
