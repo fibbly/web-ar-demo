@@ -6,6 +6,142 @@
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Web AR Demo - Chrome</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            #app {
+                font-family: Avenir, Helvetica, Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-align: center;
+                color: #2c3e50;
+                display: flex;
+                position: fixed;
+                flex-direction: column;
+                width: 100vw;
+                height: 100vh;
+                background-image: linear-gradient(to bottom, #f5f7fa, #b8c6db);
+            }
+
+            #progress {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .show {
+                visibility: visible;
+            }
+
+            .hide {
+                visibility: hidden;
+            }
+
+            .lds-ring {
+                display: flex;
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                height: 100vh;
+                z-index: 1;
+            }
+
+            .lds-ring div {
+                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                width: 64px;
+                height: 64px;
+                margin: 8px;
+                border: 8px solid #fff;
+                border-radius: 50%;
+                animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                border-color: #ff0000 transparent transparent transparent;
+            }
+
+            .lds-ring div:nth-child(1) {
+                animation-delay: -0.45s;
+            }
+
+            .lds-ring div:nth-child(2) {
+                animation-delay: -0.3s;
+            }
+
+            .lds-ring div:nth-child(3) {
+                animation-delay: -0.15s;
+            }
+
+            @keyframes lds-ring {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .Hotspot {
+                --min-hotspot-opacity: 0;
+                background-color: red;
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                border: none;
+            }
+
+            .HotspotAnnotation {
+                width: 250px;
+                padding: 8px;
+                border: 1px solid white;
+                border-radius: 6px;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1.25rem;
+                background-color: rgba(255, 255, 255, 1);
+                overflow: hidden;
+                position: absolute;
+                transform: translate(20px, 10px);
+                transition: all 0.5s;
+            }
+
+            .HotspotAnnotation > p {
+                padding: 8px;
+            }
+
+            .hotspot-image {
+                width: 100%;
+                display: block;
+                transition: all 0.5s;
+            }
+
+            .hotspot-expanded {
+                max-height: 300px;
+                max-width: 250px;
+            }
+
+            .hotspot-collapsed {
+                max-height: 0;
+                max-width: 0;
+                padding: 0;
+                border: none;
+                font-size: 0;
+            }
+
+            .bg-gray-gradient {
+                background-image: linear-gradient(to bottom, #f5f7fa, #b8c6db);
+            }
+
+            #modelViewer {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -30,7 +166,6 @@
                 shadow-intensity="1"
                 shadow-softness=".5"
                 interaction-prompt="none"
-                field-of-view="90deg"
                 min-camera-orbit="auto auto 5%"
                 interpolation-decay="200"
                 environment-image="../env/sunrise.hdr"
@@ -87,33 +222,6 @@
                         />
                     </div>
                 </button>
-                <!-- <button
-                    class="hotspot hotspot-1 flex flex-col"
-                    slot="hotspot-1"
-                    data-position="-0.45m 0.95m 0.12346496291587616m"
-                    data-normal="-0.6054131947497411m -0.03473060263529404m 0.795153223513243m"
-                    data-visibility-attribute="visible"
-                    data-target="-0.45m 0.9411807931801464m 0.12346496291587616m"
-                    data-orbit="100% 100% 100%"
-                    data-fov="240deg"
-                    data-min-fov="240deg"
-                    data-max-fov="360deg"
-                >
-                    <img
-                        class="hand"
-                        src="https://i.pinimg.com/originals/37/65/a7/3765a7e39a690b0e4b4468073a8bc9df.png"
-                        width="150px"
-                    />
-
-                    <b style="margin: 0.5rem">Hand</b>
-                    <div class="hand-info">
-                        This is a hand.
-                        <a href="https://en.wikipedia.org/wiki/Hand"
-                            ><b>Learn More.</b></a
-                        >
-                    </div>
-                </button>
-                <button slot="ar-button" id="ar-button">View in AR</button> -->
             </model-viewer>
         </div>
         <!-- Loads <model-viewer> for modern browsers: -->
@@ -126,8 +234,41 @@
             nomodule
             src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
         ></script>
+        <script>
+            (function () {
+                const modelViewer = document.querySelector("#modelViewer");
 
-        <script type="module" src="../main.js"></script>
-        <script type="module" src="../chrome.js"></script>
+                modelViewer.addEventListener("progress", (event) => {
+                    const progress = `${Math.round(
+                        Number(event.detail.totalProgress) * 100
+                    )}%`;
+                    document.getElementById("progress").innerHTML = progress;
+                });
+
+                const hotspots = document.querySelectorAll(".Hotspot");
+
+                modelViewer.addEventListener("load", () => {
+                    hotspots.forEach((hotspot) => {
+                        hotspot.classList.remove("hide");
+                        document
+                            .getElementById("modelViewer")
+                            .classList.remove("hide");
+                    });
+                    document.querySelector(".lds-ring").classList.add("hide");
+                    document.querySelector("#progress").classList.add("hide");
+                });
+
+                hotspots.forEach((hotspot) => {
+                    hotspot.addEventListener("click", () => {
+                        const annotation =
+                            hotspot.getElementsByClassName(
+                                "HotspotAnnotation"
+                            )[0];
+                        annotation.classList.toggle("hotspot-expanded");
+                        annotation.classList.toggle("hotspot-collapsed");
+                    });
+                });
+            })();
+        </script>
     </body>
 </html>

@@ -89,6 +89,7 @@
 }
 
 .HotspotAnnotation {
+    display: block;
     width: 250px;
     padding: 8px;
     border: 1px solid white;
@@ -100,6 +101,7 @@
     overflow: hidden;
     position: absolute;
     transform: translate(20px, 10px);
+    transition: all 0.5s;
 }
 
 .HotspotAnnotation > p {
@@ -109,7 +111,6 @@
 .hotspot-image {
     width: 100%;
     display: block;
-    transition: all 0.5s;
 }
 
 .hotspot-expanded {
